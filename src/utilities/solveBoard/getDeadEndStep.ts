@@ -1,10 +1,10 @@
-import { BOTTOM, LEFT, NON_OPPOSITE, RIGHT, TOP } from "../directions"
+import { DIRECTIONS, NON_OPPOSITE } from "../directions"
 import { getById } from "../getById"
 import { getLinesWithFillValue } from "../getLinesWithFillValue"
 import type { StepGetter } from "../types"
 
 export const getDeadEndStep: StepGetter = (square, lines) => {
-  for (const direction of [TOP, RIGHT, BOTTOM, LEFT]) {
+  for (const direction of DIRECTIONS) {
     const line = getById(square.lines[direction], lines)
     // check one intersection per line, to check each intersection for this square once
     const checkDirection = NON_OPPOSITE[direction][0]

@@ -3,7 +3,7 @@ import { getThreeNeighborStep } from "./getThreeNeighborStep"
 import { getDeadEndStep } from "./getDeadEndStep"
 import type { Line, Square, Step } from "../types"
 
-const STEP_GETTERS = [getFinishSquareStep, getThreeNeighborStep]
+const STEP_GETTERS = [getFinishSquareStep, getThreeNeighborStep, getDeadEndStep]
 
 export const getNextSolveStep = (
   lines: Line[],
