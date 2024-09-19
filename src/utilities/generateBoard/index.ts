@@ -1,0 +1,1 @@
+export { generateBoard as default } from "./generateBoard"

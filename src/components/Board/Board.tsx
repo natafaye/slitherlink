@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { selectBoard } from "../../boardSlice"
+import { selectBoard } from "../../redux/boardSlice"
 import BoardSquare from "./BoardSquare"
 import BoardLine from "./BoardLine"
 import BoardDot from "./BoardDot"

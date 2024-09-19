@@ -1,6 +1,5 @@
-import { Line } from "../../utilities/shared"
-import { useAppDispatch } from "../../store"
-import { toggleLine } from "../../boardSlice"
+import { useAppDispatch, toggleLine } from "../../redux"
+import type { Line } from "../../utilities"
 
 type Props = {
   line: Line
