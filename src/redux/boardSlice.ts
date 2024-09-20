@@ -28,7 +28,6 @@ const boardSlice = createSlice({
     },
     solveNextStep: (state) => {
       const nextStep = getNextSolveStep(state.lines, state.squares)
-
       if(!nextStep) return // TODO: message
       const [lineIds, newFilledValue] = nextStep
       lineIds.forEach(id => getById(id, state.lines).filled = newFilledValue)

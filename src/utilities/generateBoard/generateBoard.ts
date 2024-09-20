@@ -14,6 +14,22 @@ const board1 = [
   [3, 2, 2, 2, null],
 ]
 
+const board2 = [
+  [null, 1, null, 3, null],
+  [null, null, 3, 0, null],
+  [null, null, 2, null, null],
+  [1, null, 3, 1, 3],
+  [null, null, null, null, null],
+]
+
+const boardempty = [
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+]
+
 export const generateBoard = (rows: number, columns: number) => {
   const squares: Square[] = []
   const lines: Line[] = []
@@ -24,7 +40,7 @@ export const generateBoard = (rows: number, columns: number) => {
       // Create a new square
       const square: Square = {
         id: uuid(),
-        number: board1[i][j],
+        number: board2[i][j],
         lines: [],
         squares: [null, null, null, null],
         centerLocation: [j + 0.5, i + 0.5],

@@ -2,8 +2,14 @@ import { getFinishSquareStep } from "./getFinishSquareStep"
 import { getThreeNeighborStep } from "./getThreeNeighborStep"
 import { getDeadEndStep } from "./getDeadEndStep"
 import type { Line, Square, Step } from "../types"
+import { getThreeCornerStep } from "./getThreeCornerStep"
 
-const STEP_GETTERS = [getFinishSquareStep, getThreeNeighborStep, getDeadEndStep]
+const STEP_GETTERS = [
+  getFinishSquareStep, 
+  getThreeNeighborStep, 
+  getThreeCornerStep, 
+  getDeadEndStep
+]
 
 export const getNextSolveStep = (
   lines: Line[],
@@ -22,7 +28,8 @@ export const getNextSolveStep = (
 // Tactics
 // ✅ Finish squares
 // ✅ Put lines and x's between 3's
-// Mark x's on dead ends and lines on single exits (corners, straights, etc)
+// ✅ Mark x's on dead ends and lines on single exits (corners, straights, etc)
+// ✅ 3's on cornersa
 // Catacorner 3's
 // Mark x's on closing lines that end the puzzle without satisfying all numbers
 
