@@ -4,31 +4,7 @@ import { connectSquares } from "./connectSquares"
 import { connectAllLinesTogether } from "./connectAllLinesTogether"
 import { BOTTOM, LEFT, RIGHT, TOP } from "../directions"
 import type { Line, Square } from "../types"
-
-// temporary board hack
-const board1 = [
-  [3, null, 3, 1, null],
-  [null, null, 3, null, null],
-  [null, 1, 2, 0, 3],
-  [3, null, null, 2, 3],
-  [3, 2, 2, 2, null],
-]
-
-const board2 = [
-  [null, 1, null, 3, null],
-  [null, null, 3, 0, null],
-  [null, null, 2, null, null],
-  [1, null, 3, 1, 3],
-  [null, null, null, null, null],
-]
-
-const boardempty = [
-  [null, null, null, null, null],
-  [null, null, null, null, null],
-  [null, null, null, null, null],
-  [null, null, null, null, null],
-  [null, null, null, null, null],
-]
+import { board2 } from "./testBoards"
 
 export const generateBoard = (rows: number, columns: number) => {
   const squares: Square[] = []

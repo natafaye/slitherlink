@@ -2,6 +2,7 @@ import { CLOCKWISE, COUNTER, DIRECTIONS } from "../directions"
 import { tryGetById } from "../getById"
 import { getLinesWithFillValue } from "../getLinesWithFillValue"
 import { StepGetter } from "../types"
+import { getOtherCornerSquares } from "../getOtherCornerSquares"
 
 export const getThreeCornerStep: StepGetter = (square, lines, squares) => {
   // Only applies to 3 squares
@@ -10,10 +11,10 @@ export const getThreeCornerStep: StepGetter = (square, lines, squares) => {
   // For each direction, check the clockwise corner intersection
   for (const direction of DIRECTIONS) {
     // Get the 3 other squares in this intersection
-    const counterSquare = tryGetById(square.squares[direction], squares)
-    const clockwiseSquare = tryGetById(square.squares[CLOCKWISE[direction]], squares)
-    const middleSquare = tryGetById(
-      counterSquare?.squares[CLOCKWISE[direction]] || clockwiseSquare?.squares[direction],
+    const [counterSquare, middleSquare, clockwiseSquare] = getOtherCornerSquares(
+      square,
+      direction,
+      CLOCKWISE[direction],
       squares
     )
 
@@ -29,9 +30,9 @@ export const getThreeCornerStep: StepGetter = (square, lines, squares) => {
 
     // If the two lines don't exist or can't have lines, then the 3 has to have a corner here
     if ((!line1 || line1.filled === false) && (!line2 || line2.filled === false)) {
-        const cornerLines = [square.lines[direction], square.lines[CLOCKWISE[direction]]]
-        const unmarkedCornerLines = getLinesWithFillValue(null, cornerLines, lines)
-        if(unmarkedCornerLines.length) return [unmarkedCornerLines, true]
+      const cornerLines = [square.lines[direction], square.lines[CLOCKWISE[direction]]]
+      const unmarkedCornerLines = getLinesWithFillValue(null, cornerLines, lines)
+      if (unmarkedCornerLines.length) return [unmarkedCornerLines, true]
     }
   }
 

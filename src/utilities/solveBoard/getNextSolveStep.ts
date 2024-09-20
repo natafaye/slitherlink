@@ -1,14 +1,18 @@
 import { getFinishSquareStep } from "./getFinishSquareStep"
 import { getThreeNeighborStep } from "./getThreeNeighborStep"
 import { getDeadEndStep } from "./getDeadEndStep"
-import type { Line, Square, Step } from "../types"
 import { getThreeCornerStep } from "./getThreeCornerStep"
+import { getThreeCatacornerStep } from "./getThreeCatacornerStep"
+import { getEarlyCloseStep } from "./getEarlyCloseStep"
+import type { Line, Square, Step } from "../types"
 
 const STEP_GETTERS = [
   getFinishSquareStep, 
-  getThreeNeighborStep, 
+  getDeadEndStep,
   getThreeCornerStep, 
-  getDeadEndStep
+  getThreeNeighborStep, 
+  getThreeCatacornerStep,
+  getEarlyCloseStep
 ]
 
 export const getNextSolveStep = (
@@ -30,8 +34,9 @@ export const getNextSolveStep = (
 // ✅ Put lines and x's between 3's
 // ✅ Mark x's on dead ends and lines on single exits (corners, straights, etc)
 // ✅ 3's on cornersa
-// Catacorner 3's
-// Mark x's on closing lines that end the puzzle without satisfying all numbers
+// ✅ Catacorner 3's
+// ✅ Mark x's on closing lines that end the puzzle without satisfying all numbers
+// 1 in a corner has to have x's
 
 // Harder
 // Mark slash 2's
@@ -39,3 +44,6 @@ export const getNextSolveStep = (
 // Can't create corner on edge of 3
 // Can't create corner on edge of 2 with x on other side of corner
 // Can't create corner on edge of 1 with 2 x's on other side of corner
+// Counting ends in a region
+
+// Jordan curve theorem? -> painting cells
